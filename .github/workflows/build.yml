@@ -19,13 +19,10 @@ jobs:
   build:
     # Run the build on an Ubuntu Linux machine (likely 20.04 LTS, or maybe 22.04)
     runs-on: ubuntu-latest
+    env:
+      DOCKER_HUB_USERNAME: ${{ secrets.DOCKER_HUB_USERNAME }}
+      DOCKER_HUB_ACCESS_TOKEN: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
     steps:
-      -
-        name: Setup secrets
-        env:
-          DOCKER_HUB_USERNAME: ${{ secrets.DOCKER_HUB_USERNAME }}
-          DOCKER_HUB_ACCESS_TOKEN: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
-      -
     # Copies the repo to perform action on
       -
         name: Checkout 
