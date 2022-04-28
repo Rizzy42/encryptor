@@ -43,4 +43,4 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ${{ secrets.main.DOCKER_HUB_USERNAME }}/encryptor:latest
+          tags: ${{ secrets.main.DOCKER_HUB_USERNAME }}encryptor:latest
