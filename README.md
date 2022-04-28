@@ -1,0 +1,1 @@
+[![.github/workflows/build.yml](https://github.com/slo-fi/encryptor/actions/workflows/build.yml/badge.svg)](https://github.com/slo-fi/encryptor/actions/workflows/build.yml)
