@@ -6,6 +6,7 @@ from colorama import init as colorama_init
 from utils.files import importLines, writeLines, appendLines
 
 # Interface programs
+from interface.welcome import welcomeMsg
 from interface.user_options.input_source import getInputSource
 from interface.user_options.crypt_option import getCryptOption
 from interface.user_options.cipher_option import getCipherOption
@@ -17,6 +18,8 @@ colorama_init()
 
 def main():
 	# All the abstraction paid off, this looks great!
+	welcomeMsg()
+
 	user_source_option = getInputSource()
 	user_crypt_option = getCryptOption()
 	user_cipher_option = getCipherOption()

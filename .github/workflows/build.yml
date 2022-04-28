@@ -1,0 +1,39 @@
+# Copied from Docker docs for GitHub Actions
+# Comments are my own to explain what's happening here
+name: Docker Build CI
+
+# Runs action on every push to main branch
+on:
+  push:
+    branches:
+    - "main"
+
+jobs:
+  build:
+    # Run the build on an Ubuntu Linux machine (likely 20.04 LTS, or maybe 22.04)
+    runs-on: ubuntu-latest
+    steps:
+    # Copies the repo to perform action on
+      -
+        name: Checkout 
+        uses: actions/checkout@v2
+      -
+    # Logs in to my Docker Hub Account
+        name: Login to Docker Hub
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+          password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+      -
+    # Sets up the build service for this action
+        name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
+      -
+    # Builds the container image and pushes it to a Docker Hub repo under my account
+        name: Build and push
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          file: ./Dockerfile
+          push: true
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/encryptor:latest
