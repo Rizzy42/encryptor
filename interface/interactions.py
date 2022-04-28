@@ -11,6 +11,6 @@ def getInteger(prompt, numbers):
 			
 			return return_int
 		except ValueError:
-			print("\n{red}ERROR{white} That's not an integer.")
+			print(f"\n{red}ERROR{white} That's not an integer.")
 		except Exception:
 			print(f"\n{red}ERROR{white} Please select from the list of given options [{numbers[0]}-{numbers[len(numbers) - 1]}]")
