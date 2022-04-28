@@ -43,5 +43,5 @@ Afterwards, simply run:
 ```bash
 pipenv run build
 ```
-And you should find the final executable in a newly created ```dist/``` directory. Feel free to move this file anywhere and get rid of the cloned directory, as the executable contains all the dependencies
+And you should find the final executable in a newly created ```dist/``` directory. Feel free to move this file anywhere and get rid of the cloned directory, as the executable contains all the dependencies needed to run encryptor.
 
