@@ -17,7 +17,7 @@ on:
 
 jobs:
   build:
-    # Run the build on an Ubuntu Linux machine (likely 20.04 LTS, or maybe 22.04)
+    # Run the build on an Ubuntu Linux machine (likely Ubuntu 20.04 LTS)
     runs-on: ubuntu-latest
     steps:
     # Copies the repo to perform action on
