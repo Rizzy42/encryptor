@@ -1,5 +1,7 @@
-# Provides convenient methods that may be needed by other interface programs 
+# Provides convenient methods regarding user options that are needed by the user_options programs
 from styles.colorama_fore import red, white
+
+from interface.interactions.text import returnPrefixedText
 
 # Provides a way of safely getting an integer from the user
 def getInteger(prompt, numbers):
@@ -11,9 +13,9 @@ def getInteger(prompt, numbers):
 			
 			return return_int
 		except ValueError:
-			print(f"\n{red}ERROR{white} That's not an integer.")
+			print(returnPrefixedText("error", red, "", "That's not an integer"))
 		except Exception:
-			print(f"\n{red}ERROR{white} Please select from the list of given options [{numbers[0]}-{numbers[len(numbers) - 1]}]")
+			print(returnPrefixedText("error", red, "", f"Please select from the list of given options [{numbers[0]}-{numbers[len(numbers) - 1]}]"))
 
 # Provides a way of mapping an integer choice (selected by the user) to the text choice itself
 # This makes variables that track user options more informative as they provide the actual option the user picked
