@@ -5,7 +5,6 @@ name = "pypi"
 
 [packages]
 colorama = "*"
-pyenchant = "*"
 pyinstaller = "*"
 
 [dev-packages]
