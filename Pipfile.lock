@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "f384232d6c72e179cf899e52b1efba3ddd98d6e93e7ca3eb8afe490ecd7712cf"
+            "sha256": "17157595557d3fe3207d5c605b498d196609861993ab700264201665ca4eeecf"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -38,16 +38,6 @@
             ],
             "markers": "sys_platform == 'darwin'",
             "version": "==1.16"
-        },
-        "pyenchant": {
-            "hashes": [
-                "sha256:1cf830c6614362a78aab78d50eaf7c6c93831369c52e1bb64ffae1df0341e637",
-                "sha256:5a636832987eaf26efe971968f4d1b78e81f62bca2bde0a9da210c7de43c3bce",
-                "sha256:5facc821ece957208a81423af7d6ec7810dad29697cb0d77aae81e4e11c8e5a6",
-                "sha256:6153f521852e23a5add923dbacfbf4bebbb8d70c4e4bad609a8e0f9faeb915d1"
-            ],
-            "index": "pypi",
-            "version": "==3.2.2"
         },
         "pyinstaller": {
             "hashes": [
