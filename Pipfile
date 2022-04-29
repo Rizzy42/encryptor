@@ -14,7 +14,7 @@ pylint = "*"
 python_version = "3.9"
 
 [scripts]
-build = "pyinstaller --onefile main.py"
+build = "pyinstaller --onefile --name encryptor ./main.py"
 build-docker = "docker build . -t encryptor"
 run-dev = "python main.py"
 lint = "pylint main.py"
