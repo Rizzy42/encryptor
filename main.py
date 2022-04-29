@@ -12,8 +12,10 @@ from interface.user_options.input_source import getInputSource
 from interface.user_options.crypt_option import getCryptOption
 from interface.user_options.cipher_option import getCipherOption
 
-from interface.interactions.text import prefixedPrompt, newline
+from interface.interactions.options import getInteger
+from interface.interactions.text import prefixedPrompt, newline, returnPrefixedText
 
+from styles.colorama_fore import red
 from styles.colorama_style import main_style
 
 from ciphers.caesar import CaesarCipherInstance
@@ -32,17 +34,44 @@ def main():
 	newline()
 
 	user_data = {}
+	user_data["output"] = []
+
+	if user_crypt_option[1] == "encrypt text":
+		instruction = "to encrypt"
+	else:
+		instruction = "to decrypt"
 
 	if user_source_option[1] == "direct input string":
-		if user_crypt_option[1] == "encrypt text":
-			instruction = "to encrypt"
-		else:
-			instruction = "to decrypt"
-		user_data["text"] = prefixedPrompt("user input", Fore.YELLOW, main_style, f"Please enter the text {instruction}: ")
+		user_data["text"] = [prefixedPrompt("user input", Fore.YELLOW, main_style, f"Please enter the text {instruction}: ")]
+	else: 
+		while True:
+			try:
+				user_file = prefixedPrompt("user input", Fore.YELLOW, main_style, f"Please enter the file containing the text {instruction}: ")
+				user_data["text"] = importLines(user_file)
+				break
+			except Exception:
+				returnPrefixedText("error", red, "", "File does not exist. Please enter the full path or try again.")
+	
+	if user_crypt_option[1] == "encrypt text":
+		if user_cipher_option[1] == "caesar":
+			while True:
+				try:
+					key = getInteger(returnPrefixedText("user input", Fore.YELLOW, main_style, f"Since you're using the Caesar Cipher, you'll need to provide an encryption key: "), list(range(26)))
+					cipher = CaesarCipherInstance("", "", key)
+					break
+				except Exception:
+					print(returnPrefixedText("error", red, main_style, "You will need to provide a key between 1 and 25 inclusive"))
+		for line in user_data["text"]:
+			cipher.plaintext = line
+			cipher.encrypt()
+			user_data["output"].append(cipher.ciphertext)
+	
+	print(user_data["output"])
+
 
 	
 if __name__ == "__main__":
 	try:
 		main()
 	except KeyboardInterrupt:
-		print("KeyboardInterrupt: End Program")
+		print("\nKeyboardInterrupt: End Program")

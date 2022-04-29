@@ -7,7 +7,7 @@ def importLines(input_file):
 		with open(input_file, "r") as file:
 			return file.readlines
 	except FileNotFoundError:
-		raise Exception(f"{Fore.RED}ERROR{Fore.WHITE} Input file does not exist")
+		raise Exception("Input file does not exist")
 
 def writeLines(input_file, input_lines):
 	with open(input_file, "w") as file:
