@@ -5,7 +5,7 @@ from colorama import Fore
 def importLines(input_file):
 	try:
 		with open(input_file, "r") as file:
-			return file.readlines
+			return file.readlines()
 	except FileNotFoundError:
 		raise Exception("Input file does not exist")
 

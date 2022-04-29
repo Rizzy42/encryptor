@@ -50,9 +50,25 @@ def main():
 				user_data["text"] = importLines(user_file)
 				break
 			except Exception:
-				returnPrefixedText("error", red, "", "File does not exist. Please enter the full path or try again.")
+				print(returnPrefixedText("error", red, "", "File does not exist. Please enter the full path or try again."))
 	
 	if user_crypt_option[1] == "encrypt text":
+		if user_cipher_option[1] == "caesar":
+			while True:
+				try:
+					key = getInteger(returnPrefixedText("user input", Fore.YELLOW, main_style, f"Since you're using the Caesar Cipher, you'll need to provide an encryption key: "), list(range(26)))
+					cipher = CaesarCipherInstance("", "", key)
+					break
+				except Exception:
+					print(returnPrefixedText("error", red, main_style, "You will need to provide a key between 1 and 25 inclusive"))
+		elif user_cipher_option[1] == "atbash":
+			cipher = AtbashCipherInstance("", "")
+
+		for line in user_data["text"]:
+			cipher.plaintext = line
+			cipher.encrypt()
+			user_data["output"].append(cipher.ciphertext)
+	if user_crypt_option[1] == "decrypt text":
 		if user_cipher_option[1] == "caesar":
 			while True:
 				try:
@@ -65,10 +81,8 @@ def main():
 			cipher.plaintext = line
 			cipher.encrypt()
 			user_data["output"].append(cipher.ciphertext)
-	
+
 	print(user_data["output"])
-
-
 	
 if __name__ == "__main__":
 	try:
