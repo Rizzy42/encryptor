@@ -62,3 +62,7 @@ class AtbashCipherInstance:
 	
 	def decrypt(self):
 		self.__cipher_unified("decrypt")
+
+	def clear(self):
+		self.plaintext = ""
+		self.ciphertext = ""

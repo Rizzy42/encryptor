@@ -57,6 +57,8 @@ def main():
 			while True:
 				try:
 					key = getInteger(returnPrefixedText("user input", Fore.YELLOW, main_style, f"Since you're using the Caesar Cipher, you'll need to provide an encryption key: "), list(range(26)))
+					if key == 0:
+						raise Exception
 					cipher = CaesarCipherInstance("", "", key)
 					break
 				except Exception:
@@ -68,19 +70,25 @@ def main():
 			cipher.plaintext = line
 			cipher.encrypt()
 			user_data["output"].append(cipher.ciphertext)
+			cipher.clear()
 	if user_crypt_option[1] == "decrypt text":
 		if user_cipher_option[1] == "caesar":
 			while True:
 				try:
-					key = getInteger(returnPrefixedText("user input", Fore.YELLOW, main_style, f"Since you're using the Caesar Cipher, you'll need to provide an encryption key: "), list(range(26)))
+					key = getInteger(returnPrefixedText("user input", Fore.YELLOW, main_style, f"Since you're using the Caesar Cipher, you'll need to provide the decryption key: "), list(range(26)))
+					if key == 0:
+						raise Exception
 					cipher = CaesarCipherInstance("", "", key)
 					break
 				except Exception:
 					print(returnPrefixedText("error", red, main_style, "You will need to provide a key between 1 and 25 inclusive"))
+		elif user_cipher_option[1] == "atbash":
+			cipher = AtbashCipherInstance("", "")
 		for line in user_data["text"]:
-			cipher.plaintext = line
-			cipher.encrypt()
-			user_data["output"].append(cipher.ciphertext)
+			cipher.ciphertext = line
+			cipher.decrypt()
+			user_data["output"].append(cipher.plaintext)
+			cipher.clear()
 
 	print(user_data["output"])
 	

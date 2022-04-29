@@ -82,3 +82,10 @@ class CaesarCipherInstance:
 	
 	def decrypt(self):
 		self.__cipher_unified("decrypt")
+
+	# Used to clear variables while preserving the key
+	# This is needed in case the instance is to be used again
+	# Because __cipher_unified() builds texts cumulatively, without clearing variables the old text will still be present
+	def clear(self):
+		self.plaintext = ""
+		self.ciphertext = ""

@@ -31,14 +31,6 @@
             "index": "pypi",
             "version": "==0.4.4"
         },
-        "macholib": {
-            "hashes": [
-                "sha256:001bf281279b986a66d7821790d734e61150d52f40c080899df8fefae056e9f7",
-                "sha256:5a0742b587e6e57bfade1ab90651d4877185bf66fd4a176a488116de36878229"
-            ],
-            "markers": "sys_platform == 'darwin'",
-            "version": "==1.16"
-        },
         "pyinstaller": {
             "hashes": [
                 "sha256:0dc19ccf97584fff1766dcaf9c0425e4cd714ccc41c9f4d1222cab8c756624e4",
