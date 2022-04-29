@@ -24,6 +24,11 @@ def main():
 	user_crypt_option = getCryptOption()
 	user_cipher_option = getCipherOption()
 
+	user_data = {}
+
+	if user_source_option[1] == "direct input string":
+		user_data["text"] = input("Enter your text")
+
 	
 if __name__ == "__main__":
 	try:
