@@ -4,3 +4,4 @@ from colorama import Fore, Back
 white = Fore.WHITE
 red = Fore.RED
 cyan = Fore.CYAN
+yellow = Fore.YELLOW

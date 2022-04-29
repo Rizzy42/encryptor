@@ -11,11 +11,12 @@ from interface.welcome import welcomeMsg
 from interface.user_options.input_source import getInputSource
 from interface.user_options.crypt_option import getCryptOption
 from interface.user_options.cipher_option import getCipherOption
+from interface.user_options.save_option import getSaveOption
 
 from interface.interactions.options import getInteger
 from interface.interactions.text import prefixedPrompt, newline, returnPrefixedText
 
-from styles.colorama_fore import red
+from styles.colorama_fore import red, yellow
 from styles.colorama_style import main_style
 
 from ciphers.caesar import CaesarCipherInstance
@@ -42,11 +43,11 @@ def main():
 		instruction = "to decrypt"
 
 	if user_source_option[1] == "direct input string":
-		user_data["text"] = [prefixedPrompt("user input", Fore.YELLOW, main_style, f"Please enter the text {instruction}: ")]
+		user_data["text"] = [prefixedPrompt("user input", yellow, main_style, f"Please enter the text {instruction}: ")]
 	else: 
 		while True:
 			try:
-				user_file = prefixedPrompt("user input", Fore.YELLOW, main_style, f"Please enter the file containing the text {instruction}: ")
+				user_file = prefixedPrompt("user input", yellow, main_style, f"Please enter the file containing the text {instruction}: ")
 				user_data["text"] = importLines(user_file)
 				break
 			except Exception:
@@ -56,7 +57,7 @@ def main():
 		if user_cipher_option[1] == "caesar":
 			while True:
 				try:
-					key = getInteger(returnPrefixedText("user input", Fore.YELLOW, main_style, f"Since you're using the Caesar Cipher, you'll need to provide an encryption key: "), list(range(26)))
+					key = getInteger(returnPrefixedText("user input", yellow, main_style, f"Since you're using the Caesar Cipher, you'll need to provide an encryption key: "), list(range(26)))
 					if key == 0:
 						raise Exception
 					cipher = CaesarCipherInstance("", "", key)
@@ -75,7 +76,7 @@ def main():
 		if user_cipher_option[1] == "caesar":
 			while True:
 				try:
-					key = getInteger(returnPrefixedText("user input", Fore.YELLOW, main_style, f"Since you're using the Caesar Cipher, you'll need to provide the decryption key: "), list(range(26)))
+					key = getInteger(returnPrefixedText("user input", yellow, main_style, f"Since you're using the Caesar Cipher, you'll need to provide the decryption key: "), list(range(26)))
 					if key == 0:
 						raise Exception
 					cipher = CaesarCipherInstance("", "", key)
@@ -89,8 +90,10 @@ def main():
 			cipher.decrypt()
 			user_data["output"].append(cipher.plaintext)
 			cipher.clear()
+	
+	user_save_option = getSaveOption()
 
-	print(user_data["output"])
+	
 	
 if __name__ == "__main__":
 	try:
