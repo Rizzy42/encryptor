@@ -92,7 +92,9 @@ def main():
 			cipher.clear()
 	
 	user_save_option = getSaveOption()
-
+	if user_save_option[0] == True:
+		with open(user_save_option[1], "w") as file:
+			file.writelines(user_data["output"])
 	
 	
 if __name__ == "__main__":

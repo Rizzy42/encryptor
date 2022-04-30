@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "9e4d9aa9eab3121217f9d1334a2339a91b0446c870477a03dd9da971c76aab48"
+            "sha256": "133cc354b249602125f274284b86a89a50fa49c853df000578ccb623fc88835d"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -30,6 +30,14 @@
             ],
             "index": "pypi",
             "version": "==0.4.4"
+        },
+        "pyarmor": {
+            "hashes": [
+                "sha256:a89addb1e16b4941e9a948bb6854efdac3a1e64a33b77384ad1cff00e119e4e5",
+                "sha256:df5e8980a2f8e57d737c6811aa2a0a2964073cb9b6322a3477d7e7e6d6478c68"
+            ],
+            "index": "pypi",
+            "version": "==7.4.3"
         },
         "pyinstaller": {
             "hashes": [
