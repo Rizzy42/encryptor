@@ -1,4 +1,3 @@
-from cgitb import reset
 from interface.interactions.options import getInteger
 from interface.interactions.text import returnPrefixedText, prefixedPrompt
 
