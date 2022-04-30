@@ -29,6 +29,8 @@ Afterwards, simply run:
 pipenv run build
 ```
 And you should find the final executable in a newly created ```dist/``` directory. Feel free to move this file anywhere and get rid of the cloned directory, as the executable contains all the dependencies needed to run encryptor.
+### Handling Errors
+If an error occurs during installation, it'll likely be because some platform-dependent libraries are not installed. Check the output for details on what is missing and install them using your system's package manager.
 ## Use the Docker Image
 The Docker Universal distribution of Encryptor can only work with local files provided you mount them to the container using a [Docker Bind Mount](https://docs.docker.com/storage/bind-mounts/) or [Docker Volume](https://docs.docker.com/storage/volumes/). The advantage of this installation method is that the Docker Hub Image is always up-to-date with the latest changes to the repo and it's always easier to ```docker pull``` to update your image as opposed to building the entire thing from source again.
 ### Prequisites

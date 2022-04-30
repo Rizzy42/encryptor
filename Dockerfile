@@ -9,5 +9,5 @@ RUN apk update && \
 					pipenv run docker-build
 
 FROM alpine:latest as runtime
-COPY --from=builder /src/dist/main ./
-ENTRYPOINT [ "./main" ]
+COPY --from=builder /src/dist/encryptor ./
+ENTRYPOINT [ "./encryptor" ]
