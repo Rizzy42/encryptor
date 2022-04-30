@@ -16,6 +16,7 @@ python_version = "3.9"
 
 [scripts]
 build = "pyarmor pack --clean -e '--onefile ' ./encryptor.py"
-build-docker = "docker build . -t encryptor"
+docker-build = "pyinstaller --onefile encryptor.py"
+docker-imagegen = "docker build . -t encryptor"
 run-dev = "python encryptor.py"
 lint = "pylint encryptor.py"

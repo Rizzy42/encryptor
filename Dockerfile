@@ -6,7 +6,7 @@ RUN apk update && \
 		apk add py3-pip binutils && \
 			pip install pipenv && \	
 				pipenv install --system && \		
-					pyinstaller --onefile main.py
+					pipenv run docker-build
 
 FROM alpine:latest as runtime
 COPY --from=builder /src/dist/main ./
