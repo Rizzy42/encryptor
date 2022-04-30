@@ -12,7 +12,3 @@ def importLines(input_file):
 def writeLines(input_file, input_lines):
 	with open(input_file, "w") as file:
 		file.writelines(input_lines)
-
-def appendLines(input_file, input_lines):
-	with open(input_file, "a") as file:
-		file.writelines(input_lines)
